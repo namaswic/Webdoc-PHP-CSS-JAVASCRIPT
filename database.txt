@@ -1,0 +1,168 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Oct 31, 2015 at 02:25 PM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `appointment_system`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointment`
+--
+
+CREATE TABLE IF NOT EXISTS `appointment` (
+  `appointment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `patient_id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL,
+  `date` text NOT NULL,
+  PRIMARY KEY (`appointment_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`appointment_id`, `patient_id`, `doctor_id`, `date`) VALUES
+(33, 11, 2, '5/12/15'),
+(35, 11, 3, '6/11/15'),
+(30, 13, 2, '30/8/15'),
+(16, 23, 1, '8/10/15'),
+(34, 14, 1, '8/11/15'),
+(32, 11, 4, '27/10/15'),
+(29, 11, 1, '5/12/2015'),
+(28, 11, 2, '30/8/15'),
+(36, 14, 27, '12/12/15'),
+(37, 26, 12, '6/12/15'),
+(39, 32, 1, '7/11/15'),
+(41, 34, 1, '8/11/15'),
+(42, 35, 2, '7/11/15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctor`
+--
+
+CREATE TABLE IF NOT EXISTS `doctor` (
+  `doctor_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `surname` text NOT NULL,
+  `username` text NOT NULL,
+  `password` text NOT NULL,
+  `area` text NOT NULL,
+  `time_slot` text NOT NULL,
+  `address` text NOT NULL,
+  `contact` int(11) NOT NULL,
+  `doctor_type` text NOT NULL,
+  `image` text NOT NULL,
+  `charges_per_visit` text NOT NULL,
+  PRIMARY KEY (`doctor_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
+
+--
+-- Dumping data for table `doctor`
+--
+
+INSERT INTO `doctor` (`doctor_id`, `name`, `surname`, `username`, `password`, `area`, `time_slot`, `address`, `contact`, `doctor_type`, `image`, `charges_per_visit`) VALUES
+(1, 'John', 'Dsouza', 'john', 'john', 'Malad', '3-6', 'Adarsh, Malad(w)', 987654321, 'Cardiologist', 'doctor2.jpeg', '500'),
+(2, 'Harry', 'D''Costa', 'harry', 'harry', 'Kandivali', '6-9', 'Thakur Complex, Kandivali(e)', 867896543, 'Dentist', 'doctor3.jpeg', '400'),
+(3, 'Ram', 'Singh', 'ram', 'ram', 'Kandivali', '7-10', 'Near d''mart, Mahavir nagar, Kandivali(w)', 780756739, 'Dentist', '', '600'),
+(4, 'Geeta ', 'Patel', 'geeta', 'geeta', 'Malad', '12-3', 'Adarsh,Malad(W)', 790651897, 'Dentist', '', '300'),
+(5, 'Birju', 'Sirodaria', 'birju', 'birju', 'Malad', '3-9', 'Sirodaria hospital, Near inorbit mall, Malad(w)', 908087689, 'Cardiologist', '', '700'),
+(6, 'Suresh', 'Rathod', 'suresh', 'suresh', 'Malad', '9-12', 'Om Vastu clinic, behind infiniti mall, Malad(w)', 867954789, 'Dentist', '', '300'),
+(7, 'Dilip ', 'Sardesai', 'dilip', 'dilip', 'Malad', '9-1', 'Podar hospital, Mahavir nagar-3, near PVR cinemas, Malad(w)', 789608689, 'Cardiologist', '', '550'),
+(8, 'Harshit', 'Dave', 'harshit', 'harshit', 'Malad', '5-10', 'Wakhardt Hospital, Near Malad station, Malad(e)', 780769078, 'Gynecologist', '', '600'),
+(9, 'Abhijeet', 'Khachar', 'abhijeet', 'abhijeet', 'Malad', '10-2', 'Wakhardt Hospital, Near Malad station, Malad(e)', 780987890, 'Gynecologist', '', '700'),
+(10, 'Farhan', 'Khan', 'farhan', 'farhan', 'Malad', '10-1\r\n', 'Kasturba clinic, Near inorbit mall, Malad(w)', 891734568, 'Dentist', '', '500'),
+(11, 'Neha ', 'Shah', 'neha', 'neha', 'Malad', '10-2', 'Sterling hospital, Malad(w)', 789342675, 'Gynecologist', '', '600'),
+(12, 'Harsh', 'Makadia', 'harshm', 'harshm', 'Kandivali', '3-9', 'HM clinic, Thakur village, Kandivali(e)', 789675648, 'Dentist', '', '400'),
+(13, 'Rajesh', 'Shah', 'rajesh', 'rajesh', 'Kandivali', '5-10', 'Apollo Hospital, Kandivali(w)', 786119099, 'Cardiologist', '', '700'),
+(14, 'Tirth', 'Jain', 'tirth', 'tirth', 'Kandivali', '10-2', 'Tirth Clinic, Kandivali (w)', 789077889, 'Gynecologist', '', '700'),
+(15, 'Kirtan', 'Rathod', 'kirtan', 'kirtan', 'Kandivali', '5-10', 'Apollo hospital, Kandivali (w)', 789000099, 'Cardiologist', '', '800'),
+(16, 'Sneha', 'Agarwal', 'sneha', 'sneha', 'Kandivali', '10-1', 'Agarwal Clinic, Lokhandwala, Kandivali(e)', 888890123, 'Gynecologist', '', '700'),
+(17, 'Urval', 'Dhruve', 'urval', 'urval', 'Kandivali', '9-12', 'UD clinic, Mahavir nagar, kandivali(w)', 897878988, 'Gynecologist', '', '500'),
+(18, 'Varun', 'Prajapati', 'varun', 'varun', 'Borivali', '10-1', 'Polaris Hospital, eksar Road, Borivali(w)', 890786567, 'Cardiologist', '', '800'),
+(19, 'Gaurav', 'Bansal', 'gaurav', 'gaurav', 'Borivali', '10-2', 'GB clinic, Lokhandwala, Kandivali (e)', 899669078, 'Dentist', '', '500'),
+(20, 'Juhi ', 'Patil', 'juhi', 'juhi', 'Borivali', '4-10', 'Polaris Hospital, eksar Road, Borivali(w)', 890781123, 'gynecologist', '', '800'),
+(21, 'Kanishk', 'Bhardwaj', 'kanishk', 'kanishk', 'Borivali', '6-11', 'Bhardwaj clinic, chiku wadi, Borivali(w)', 782111909, 'Cardiologist', '', '600'),
+(22, 'Sejal ', 'Parekh', 'sejal', 'sejal', 'Andheri', '5-10', 'Leelavati Hospital, Andheri(e)', 897867098, 'Cardiologist', '', '900'),
+(23, 'Dipanshu ', 'Parekh', 'dipu', 'dipu', 'Andheri', '10-3', 'Leelavati hospital, ANdheri (e)', 789909909, 'Gynecologist', '', '800'),
+(24, 'Savan ', 'Kanabar', 'savan', 'savan', 'Borivali', '5-10', 'Hari om Clinic, LT road, Borivali (w)', 789223413, 'Gynecologist', '', '600'),
+(25, 'Urmi ', 'Mehta', 'urmi', 'urmi', 'Borivali', '7-11', 'Mehta clinic, Borivali (e) ', 777897823, 'Dentist', '', '400'),
+(26, 'Yogesh', 'Dholakia', 'yogesh', 'yogesh', 'Borivali', '9-3', 'Dholakia Hospital, Near raghuleela mall, Borivali (w)', 789011235, 'Cardiologist', '', '700'),
+(27, 'Mihir ', 'Mehta', 'mihir', 'mihir', 'Andheri', '6-10', 'Sai baba clinic, Near Andheri station, ANdheri (e)', 909878789, 'Dentist', '', '350'),
+(28, 'Jaydeep', 'Dave', 'jaydeep', 'jaydeep', 'Andheri', '8-12', 'Leelavati hospital, Andheri(e)', 907828919, 'Dentist', '', '800'),
+(29, 'Raj', 'Koradia', 'raj', 'raj', 'Andheri', '4-10', 'Leelavati Hospital, Andheri(e)', 878955343, 'Gynecologist', '', '600'),
+(30, 'Rishabh ', 'Prakash', 'rishabh', 'rishabh', 'Andheri', '10-3', 'Rita Hospital, Near andheri station,Andheri(w)', 878633321, 'Cardiologist', '', '500'),
+(31, 'Pratiksha', 'Dhakate', 'pratiksha', 'pratiksha', 'Borivali', '9-2', 'Pearl Clinic, Near Daffodils restaurant, Borivali(w)', 890762543, 'Gynecologist', '', '900');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE IF NOT EXISTS `feedback` (
+  `feedback_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `email` text NOT NULL,
+  `contact` text NOT NULL,
+  `comments` text NOT NULL,
+  PRIMARY KEY (`feedback_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`feedback_id`, `name`, `email`, `contact`, `comments`) VALUES
+(4, 'kjhg', 'lkjhg', 'jhg', 'jhg'),
+(3, 'uyhjg', 'bihkmn', '8778', 'uygjhn'),
+(5, 'kjhg', 'lkjhg', 'jhg', ''),
+(6, '', '', '', ''),
+(7, 'Yash', 'abc@xyz', '94685953', 'good'),
+(8, 'Namaswi', 'namaswic@gmail.com', '9619901855', 'jygfesfdy');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patient`
+--
+
+CREATE TABLE IF NOT EXISTS `patient` (
+  `patient_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(11) NOT NULL,
+  `password` varchar(11) NOT NULL,
+  `name` varchar(11) NOT NULL,
+  `date_of_birth` varchar(11) NOT NULL,
+  `contact` text NOT NULL,
+  `address` text NOT NULL,
+  `male_female` text NOT NULL,
+  PRIMARY KEY (`patient_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
+
+--
+-- Dumping data for table `patient`
+--
+
+INSERT INTO `patient` (`patient_id`, `username`, `password`, `name`, `date_of_birth`, `contact`, `address`, `male_female`) VALUES
+(33, 'namaswi', 'namaswi', 'Namaswi', '5/5/96', '9853873', 'Malad', 'Male'),
+(32, 'new user', 'new user', 'Sandhya', '4/5/96', '984783', 'Malad', 'Female'),
+(11, 'namu5596', 'hi', 'Namaswi', '05/05/1996', '9619901855', 'Malad', 'Female'),
+(12, 'new user', 'new user', 'bhavya', '15/8/1997', '9619901855', 'malad', 'Male'),
+(13, 'harsh', 'harsh', 'harsh', '30/1/1991', '9920383837', 'Malad', 'Male'),
+(14, 'yash', 'yash', 'Yash', '16/01/1996', '9273832879', 'Kandivali', 'Male'),
+(34, 'new user', 'new user', 'Namaswi', '05/05/1996', '098765', 'Malad', 'Female'),
+(23, 'new user', 'new user', 'Vidhi', '9/9/93', '9875438732', 'Borivali', 'Female'),
+(35, 'harry', 'harry', 'john', '5/5/96', '098765', 'Borivali', 'Male'),
+(26, 'new user', 'new user', 'Riya', '8/8/95', '965478435', 'Borivali Station', 'Female'),
+(29, 'yash1', 'yash1', 'Yash', '7/7/8', '987538290', 'jdskv', 'Male');
